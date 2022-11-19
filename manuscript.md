@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-19" />
   <meta name="citation_publication_date" content="2022-11-19" />
   <meta property="article:published_time" content="2022-11-19" />
-  <meta name="dc.modified" content="2022-11-19T22:54:58+00:00" />
-  <meta property="article:modified_time" content="2022-11-19T22:54:58+00:00" />
+  <meta name="dc.modified" content="2022-11-19T23:12:46+00:00" />
+  <meta property="article:modified_time" content="2022-11-19T23:12:46+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/eede4dbd425a5df13d46107aa42653d318234721/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/eede4dbd425a5df13d46107aa42653d318234721/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/eede4dbd425a5df13d46107aa42653d318234721/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/eede4dbd425a5df13d46107aa42653d318234721/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@c0256b7](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/c0256b71e9cc758aad84831395407b1b1afb7f54)
+from [dib-lab/2022-paper-genomic-tax-redundancy@eede4db](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/eede4dbd425a5df13d46107aa42653d318234721)
 on November 19, 2022.
 </em></small>
 
@@ -145,6 +145,8 @@ Hackmd for tables here: https://hackmd.io/GvngZ4gHQE-9ERB4Gd71HQ
 
 ### Many k-mers are genome specific
 
+(also see unicity distance at bottom.)
+
 ### Shannon entropy of k-mers can be used to measure taxonomic informativeness
 
 We measured the species distribution in GTDB rs207 for 21.2 million
@@ -164,6 +166,8 @@ rs207 genomes. {#tbl:gtdb-entropy}
 
 Make point that nucleotide k-mers are not necessarily specific beyond
 family (ref protein paper).
+
+Add fourth row to tables.
 
 ### Shannon entropy can summarize the taxonomic cohesion of taxonomies based on genomic relationships.
 
@@ -189,26 +193,36 @@ labels. {#tbl:ncbi-entropy}
 
 Explore taxonomic incoherence and database contamination.
 
+Find challenging genomes. Explore low H values.
+
 ### Unicity distance can be used to estimate genomic redundancy
 
 We next ask, how many genomes can be distinguished from each other
 using a combinatorial collection of k-mers?  To do this, we estimate
 the _unicity distance_ of each genome in the database, where the
 unicity distance is defined as the smallest set of hashes capable of
-uniquely identifying a genome. (k=31, scaled=1000)
+uniquely identifying an individual genome. (k=31, scaled=1000)
 
-Table YY shows that approximately 29.2% of the genomes in GTDB rs207
-cannot be distinguished uniquely by any combination of 31-mers at a
-scaled of 1000.
+Table @tbl:unicity shows that approximately 29.2% of the genomes in
+GTDB rs207 cannot be distinguished uniquely by _any_ combination of
+31-mers at a scaled of 1000, while some substantial amount (estimated
+as 15.3%) can be precisely identified using a single hash.
 
 (Do higher resolution k-mer analysis of some of these; talk about
 error rates, etc.)
+
+(Compare also with k-mer informativeness; can we tie entropy
+computation at top back to number of genomes with unicity of 1,
+and cross validate?)
  
 | Unicity distance | Number of genomes | Percent of genomes |
 | -------- | -------- | -------- |
 | 1     | 48,630     | 15.3%     |
 | infinite | 92,564 | 29.2% | 
 
+Table: Estimated unicity distances with hashes for 318k GTDB rs207
+genomes using FracMinHash as implemented in sourmash (k=31,
+scaled=1000). {#tbl:unicity}
 
 
 ## Discussion {.page_break_before}
@@ -290,10 +304,11 @@ dramatically affect our conclusions. (Confirm me, please :).
 
 This is easy mode: this kind of taxonomic classification is "just" a
 database lookup.  What messes up taxonomic classification with k-mers
-is (1) biology (redundancy) and (2) humans (taxonomy). (1) is
-resolvable to a significant extent with combinatorics. (2) can be
-tackled with better metrics and systematic improvement. Here we
-provide measures that assist with both.
+is (1) biology (redundancy and laterally transferred genetic elements)
+and (2) humans (taxonomy). (1) is resolvable to a significant extent
+with combinatorics. (2) can be tackled with better metrics and
+systematic improvement. Here we provide measures that assist with
+both.
 
 Despite this, biological questions remain that are out of scope of
 this paper: correctness and completeness of reference databases matters.

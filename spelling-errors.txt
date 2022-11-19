@@ -1,9 +1,10 @@
 combinatorial
 combinatorics
 equationXX
+FracMinHash
 generalizability
 genomic
-gtdb
+GTDB
 Hackmd
 janeroe
 johndoe
@@ -13,12 +14,11 @@ LCA
 mer
 mers
 metagenome
-NCBI
+ncbi
 pangenome
 profilers
 sourmash
 sourmash’s
-Unicity
+unicity
 XXXX
 XXXXXXXX
-YY
