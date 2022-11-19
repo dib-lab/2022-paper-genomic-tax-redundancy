@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-19" />
   <meta name="citation_publication_date" content="2022-11-19" />
   <meta property="article:published_time" content="2022-11-19" />
-  <meta name="dc.modified" content="2022-11-19T21:39:17+00:00" />
-  <meta property="article:modified_time" content="2022-11-19T21:39:17+00:00" />
+  <meta name="dc.modified" content="2022-11-19T22:54:58+00:00" />
+  <meta property="article:modified_time" content="2022-11-19T22:54:58+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/1f44b3ca936a98beef02ce3d72c283e49a513f6b/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/1f44b3ca936a98beef02ce3d72c283e49a513f6b/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/1f44b3ca936a98beef02ce3d72c283e49a513f6b/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/1f44b3ca936a98beef02ce3d72c283e49a513f6b/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/c0256b71e9cc758aad84831395407b1b1afb7f54/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@1f44b3c](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/1f44b3ca936a98beef02ce3d72c283e49a513f6b)
+from [dib-lab/2022-paper-genomic-tax-redundancy@c0256b7](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/c0256b71e9cc758aad84831395407b1b1afb7f54)
 on November 19, 2022.
 </em></small>
 
@@ -141,22 +141,49 @@ Introduction goes here.
 
 ## Results {.page_break_before}
 
+Hackmd for tables here: https://hackmd.io/GvngZ4gHQE-9ERB4Gd71HQ
+
 ### Many k-mers are genome specific
 
 ### Shannon entropy of k-mers can be used to measure taxonomic informativeness
 
-We measured the species distribution in GTDB rs207 for 21.2 million hashes,
-representing 21.2 billion 31-mers, and calculated the Shannon entropy of
-species for each hash (equationXX). Per Table XX, 92.8% of hashes uniquely
-identify a specific family.
+We measured the species distribution in GTDB rs207 for 21.2 million
+hashes, representing 21.2 billion 31-mers, and calculated the Shannon
+entropy for each hash (equationXX) at the species, genus, and family
+levels. Per Table @tbl:gtdb-entropy, 99.1% of hashes uniquely identify
+a specific family within the GTDB taxonomy.
 
-| Taxonomic level | # perfectly informative hashes | cumulative % total | 
+| Taxonomic level (GTDB) | # perfectly informative hashes | cumulative % total | 
 | -------- | -------- | -------- |
 | species     | 21,150,287     | 92.8%     | 92.8%
-| genus     | 1,262,281     | XXX%     |
-| family     | 170,249     | YYY%     | 
+| genus     | 1,262,281     | 98.3%     |
+| family     | 170,249     | 99.1%     | 
 
-(Make point that nucleotide k-mers are not necessarily specific beyond family ref protein paper.)
+Table: Entropy measurements for GTDB taxonomy using 318k genomes from
+rs207 genomes. {#tbl:gtdb-entropy}
+
+Make point that nucleotide k-mers are not necessarily specific beyond
+family (ref protein paper).
+
+### Shannon entropy can summarize the taxonomic cohesion of taxonomies based on genomic relationships.
+
+We can also calculate the Shannon entropy with respect to different
+taxonomies. Table @tbl:ncbi-entropy uses the NCBI taxonomy with the
+same genomes used above.  Here we see that approximately 4.5% of hashes
+cannot be used to distinguish between different families
+- a full 5 times as many as with the GTDB taxonomy.  These
+1.0 million hashes represent approximately 10 billion k-mers, or
+approximately 2,000 bacterial genomes worth of sequence.
+
+| Taxonomic level (NCBI) | # perfectly informative hashes | cumulative % total | 
+| -------- | -------- | -------- |
+| species     | 20,744,791    | 91.0% |
+| genus     | 779,234    | 94.4%     |
+| family     | 245,718    | 95.5%     | 
+
+Table: Entropy measurements for same 318k GTDB rs207 genomes as in
+Table @tbl:gtdb-entropy, but using NCBI taxonomic
+labels. {#tbl:ncbi-entropy}
 
 ### Many k-mers with non-zero entropy come from a few specific genomes
 
@@ -171,8 +198,11 @@ unicity distance is defined as the smallest set of hashes capable of
 uniquely identifying a genome. (k=31, scaled=1000)
 
 Table YY shows that approximately 29.2% of the genomes in GTDB rs207
-cannot be distinguished uniquely by any combination of k-mers with
-these parameters.
+cannot be distinguished uniquely by any combination of 31-mers at a
+scaled of 1000.
+
+(Do higher resolution k-mer analysis of some of these; talk about
+error rates, etc.)
  
 | Unicity distance | Number of genomes | Percent of genomes |
 | -------- | -------- | -------- |
@@ -180,9 +210,95 @@ these parameters.
 | infinite | 92,564 | 29.2% | 
 
 
+
 ## Discussion {.page_break_before}
 
-Discussion goes here.
+### Species-level classification should be straightforward with k-mers
+
+Taxonomic classification to the species level is straightforward,
+largely because GTDB taxonomy is closely tied to genomic content and
+most of the genomic redundancy lies within species and genus
+level. Thus GTDB taxonomy largely encapsulates this redundancy. The
+entropy measurements demonstrate that it is possible to choose an
+informative subset of k-mers that would robustly classify at the
+species level, and that doing so would not compromise sensitivity.
+LCA-style approaches such as those used by Kraken should work even if
+we use genus and family level k-mers, while eliminating those above.
+
+Shared genomic content at higher levels confounds taxonomic
+classification methods. While surely some shared genomic content is
+real, our analysis suggests that significant portions of it are
+contamination.
+
+### Classification below the strain level
+
+Detecting genomes from sequences is easy with k-mers, but
+significant redundancy prevents straightforward classification to the
+genome/strain level. Here leveraging combinatorial application of
+k-mers provides significant leverage; this is how sourmash achieves
+high precision. Nonetheless sourmash cannot distinguish a full 30% of
+the genomes in the database from each other.
+
+Some implications are that it should be possible to use information
+from both short and long reads to classify robustly to the species
+level, but it is unlikely to work below that (at the strain level).
+This is because many reads will map to shared content within a species,
+and some of that shared content may not distinguish a particular
+genome from others in the pangenome at the resolution of the available
+reads.
+
+A simple thought experiment also suggests that reduced-representation
+/slimmed-down databases will not support strain-level classification.
+Suppose that a technique exists that can classify reads to a strain
+level.  First, choose a read that belongs to two or more different
+strains; there is no way to identify which strain this belongs
+to. Second, choose a read that belongs to a strain that is not
+represented in the database; while it clearly belongs to a known
+species, there is no way to identify which. Classifiers should be
+using all available information and it is clearly possible to do so,
+viz sourmash.
+
+(Probably need to spend some time here talking about core vs accessory
+genomes.)
+
+Approaches such as sourmash can try to operate "above" individual
+k-mers, but will also be stymied by infinite unicity. Here combinatorial
+uses of k-mers (via e.g. containment) may be able to resolve strains,
+but will need to do so at higher resolution than sourmash's current
+parameters. Here approaches such as Agamemnon may be useful.
+
+### A method to evaluate, compare, and study taxonomic lables
+
+The GTDB and NCBI taxonomies are not entirely consonant and our
+studies using entropy suggest that a substantial portion of the NCBI
+taxonomy is confused. Comparing Table @tbl:gtdb-entropy and Table
+@tbl:ncbi-entropy, we see that 5x as many k-mers belong to genomes
+that do not share the same family-level labels.  This difference is
+due solely to the taxonomic labels. It is not necessarily surprising
+that NCBI is so different since GTDB is directly constructed using
+content-based phylogeny, but it does suggest that there are many
+places where the NCBI taxonomy should be examined closely.
+
+(drill down; contamination, etc.)
+
+### Shannon entropy and unicity on k-mers are robust ways to study, evaluate, and summarize large databases
+
+Exploration of these results suggest that k-mer size and scaled do not
+dramatically affect our conclusions. (Confirm me, please :).
+
+## Conclusion
+
+This is easy mode: this kind of taxonomic classification is "just" a
+database lookup.  What messes up taxonomic classification with k-mers
+is (1) biology (redundancy) and (2) humans (taxonomy). (1) is
+resolvable to a significant extent with combinatorics. (2) can be
+tackled with better metrics and systematic improvement. Here we
+provide measures that assist with both.
+
+Despite this, biological questions remain that are out of scope of
+this paper: correctness and completeness of reference databases matters.
+And we really also say nothing about generalizability, where we know
+that we have problems.
 
 
 ## Methods {.page_break_before}
