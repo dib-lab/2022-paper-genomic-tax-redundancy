@@ -1,10 +1,9 @@
 ---
-title: "Manuscript Title"
+title: "Comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases "
 date: null  # Defaults to date generated, but can specify like '2022-10-31'.
 keywords:
-  - markdown
-  - publishing
-  - manubot
+  - Shannon entropy
+  - unicity distance
 lang: en-US
 authors:
   - github: johndoe

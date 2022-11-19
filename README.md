@@ -1,4 +1,4 @@
-# Automated scholarly manuscripts on GitHub
+# Comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases
 
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
