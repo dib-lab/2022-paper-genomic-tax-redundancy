@@ -1,6 +1,6 @@
 ANI
 capabiltiy
-Combinatorial
+combinatorial
 combinatorics
 CTB
 downsampling
@@ -36,7 +36,7 @@ profilers
 pseudoalignment
 SNP
 SNPs
-Sourmash
+sourmash
 sourmash’s
 summarization
 SVs

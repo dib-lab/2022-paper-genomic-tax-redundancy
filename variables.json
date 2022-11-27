@@ -1,6 +1,6 @@
 {
   "pandoc": {
-    "title": "Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases ",
+    "title": "Practical limits in resolving species and genomes from metagenomic data",
     "keywords": [
       "Shannon entropy",
       "unicity distance"
@@ -11,7 +11,7 @@
       "John Doe",
       "Jane Roe"
     ],
-    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases \" />\n<meta name=\"citation_title\" content=\"Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases \" />\n<meta property=\"og:title\" content=\"Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases \" />\n<meta property=\"twitter:title\" content=\"Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases \" />\n<meta name=\"dc.date\" content=\"2022-11-27\" />\n<meta name=\"citation_publication_date\" content=\"2022-11-27\" />\n<meta property=\"article:published_time\" content=\"2022-11-27\" />\n<meta name=\"dc.modified\" content=\"2022-11-27T17:21:48+00:00\" />\n<meta property=\"article:modified_time\" content=\"2022-11-27T17:21:48+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"John Doe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<meta name=\"twitter:creator\" content=\"@johndoe\" />\n<meta name=\"citation_author\" content=\"Jane Roe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_institution\" content=\"Department of Whatever, University of Something\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<link rel=\"canonical\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta property=\"og:url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta property=\"twitter:url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta name=\"citation_pdf_url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->",
+    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Practical limits in resolving species and genomes from metagenomic data\" />\n<meta name=\"citation_title\" content=\"Practical limits in resolving species and genomes from metagenomic data\" />\n<meta property=\"og:title\" content=\"Practical limits in resolving species and genomes from metagenomic data\" />\n<meta property=\"twitter:title\" content=\"Practical limits in resolving species and genomes from metagenomic data\" />\n<meta name=\"dc.date\" content=\"2022-11-27\" />\n<meta name=\"citation_publication_date\" content=\"2022-11-27\" />\n<meta property=\"article:published_time\" content=\"2022-11-27\" />\n<meta name=\"dc.modified\" content=\"2022-11-27T17:55:17+00:00\" />\n<meta property=\"article:modified_time\" content=\"2022-11-27T17:55:17+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"John Doe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<meta name=\"twitter:creator\" content=\"@johndoe\" />\n<meta name=\"citation_author\" content=\"Jane Roe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_institution\" content=\"Department of Whatever, University of Something\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<link rel=\"canonical\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta property=\"og:url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta property=\"twitter:url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/\" />\n<meta name=\"citation_pdf_url\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->",
     "bibliography": [
       "content/manual-references.json"
     ],
@@ -23,7 +23,7 @@
   "manubot": {
     "date": "2022-11-27",
     "date_long": "November 27, 2022",
-    "generated": "2022-11-27T17:21:48+00:00",
+    "generated": "2022-11-27T17:55:17+00:00",
     "generated_date_long": "November 27, 2022",
     "randomize_author_order": false,
     "authors": [
@@ -76,19 +76,19 @@
       "repo_slug": "dib-lab/2022-paper-genomic-tax-redundancy",
       "repo_owner": "dib-lab",
       "repo_name": "2022-paper-genomic-tax-redundancy",
-      "commit": "df01a672f7822cd5513e0d01fbd663a3a8facb7e",
-      "triggering_commit": "df01a672f7822cd5513e0d01fbd663a3a8facb7e",
-      "build_url": "https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/commit/df01a672f7822cd5513e0d01fbd663a3a8facb7e/checks",
-      "job_url": "https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/actions/runs/3559206612"
+      "commit": "7086333ad8a9f64c437ba4a02f0d10f62646589b",
+      "triggering_commit": "7086333ad8a9f64c437ba4a02f0d10f62646589b",
+      "build_url": "https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/commit/7086333ad8a9f64c437ba4a02f0d10f62646589b/checks",
+      "job_url": "https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/actions/runs/3559321488"
     },
     "html_url": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/",
     "pdf_url": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf",
-    "html_url_versioned": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/",
-    "pdf_url_versioned": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/manuscript.pdf",
+    "html_url_versioned": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/",
+    "pdf_url_versioned": "https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/manuscript.pdf",
     "manubot_version": "0.5.3",
     "rootstock_commit": "d5237b3c71839bc12c1755e32eee9a5fb62ffd48",
     "manuscript_stats": {
-      "word_count": 3584
+      "word_count": 3638
     }
   }
 }

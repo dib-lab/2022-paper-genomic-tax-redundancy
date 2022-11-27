@@ -8,7 +8,7 @@
   <meta name="author" content="Jane Roe" />
   <meta name="dcterms.date" content="2022-11-27" />
   <meta name="keywords" content="Shannon entropy, unicity distance" />
-  <title>Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases</title>
+  <title>Practical limits in resolving species and genomes from metagenomic data</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -42,15 +42,15 @@
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases " />
-  <meta name="citation_title" content="Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases " />
-  <meta property="og:title" content="Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases " />
-  <meta property="twitter:title" content="Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases " />
+  <meta name="dc.title" content="Practical limits in resolving species and genomes from metagenomic data" />
+  <meta name="citation_title" content="Practical limits in resolving species and genomes from metagenomic data" />
+  <meta property="og:title" content="Practical limits in resolving species and genomes from metagenomic data" />
+  <meta property="twitter:title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta name="dc.date" content="2022-11-27" />
   <meta name="citation_publication_date" content="2022-11-27" />
   <meta property="article:published_time" content="2022-11-27" />
-  <meta name="dc.modified" content="2022-11-27T17:21:48+00:00" />
-  <meta property="article:modified_time" content="2022-11-27T17:21:48+00:00" />
+  <meta name="dc.modified" content="2022-11-27T17:55:17+00:00" />
+  <meta property="article:modified_time" content="2022-11-27T17:55:17+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -71,9 +71,9 @@
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -86,13 +86,13 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Towards comprehensive evaluation of genomic redundancy and taxonomic coherence in large biological databases</h1>
+<h1 class="title">Practical limits in resolving species and genomes from metagenomic data</h1>
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/">permalink</a>)
+(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/df01a672f7822cd5513e0d01fbd663a3a8facb7e">dib-lab/2022-paper-genomic-tax-redundancy@df01a67</a>
+from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/7086333ad8a9f64c437ba4a02f0d10f62646589b">dib-lab/2022-paper-genomic-tax-redundancy@7086333</a>
 on November 27, 2022.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -183,10 +183,15 @@ combinatorics).</li>
 <li>sourmash works well because of combinatorics automatically picking discriminatory hashes.</li>
 <li>NCBI is more confused than GTDB.</li>
 </ul>
-<h3 id="many-individual-k-mers-are-genome-specific-but-not-all-genomes-have-perfectly-informative-k-mers">Many individual k-mers are genome specific, but not all genomes have perfectly informative k-mers</h3>
-<p>We first ask, if we see a k-mer from the reference database in a
-metagenome, what is the likelihood of that k-mer being specific to a
-genome? And how many genomes have k-mers that uniquely identify that
+<p>Challenges:</p>
+<ul>
+<li>FracMinHash has false negatives, so we have to be careful about conclusions about what k-mers <em>cannot</em> do.</li>
+<li>Do we want to make this (mostly) about FracMinHash, or not? :)</li>
+</ul>
+<h3 id="many-individual-hashes-are-genome-specific-but-not-all-genomes-have-perfectly-informative-hashes">Many individual hashes are genome specific, but not all genomes have perfectly informative hashes</h3>
+<p>We first ask, if we see a hash from the reference database in a
+metagenome, what is the likelihood of that hash being specific to a
+genome? And how many genomes have hashes that uniquely identify that
 genome?</p>
 <p>Consider a collection of the size of GTDB - 320,000 genomes with
 an average size of 5e6 bp. In the simplest case where these genomes
@@ -197,11 +202,12 @@ should be capable of perfectly distinguishing that genome’s presence
 even in low-coverage data sets
 (Appendix A).</p>
 <p>In practice, genomes are neither unbiased nor contain distinct
-content. We used FracMinHash (S=10,00, k=31) to generate a
+content. In order to analyze 300k genomes at scale, we used
+FracMinHash. At reasonable parameters (S=10,00, k=31) we generated a
 representative collection of hashes and found that 15378449 of
 22792206 hashvals (67.5%) in GTDB rs207 are perfectly informative at
 genome level.</p>
-<p>These 15.4m perfectly discriminating k-mers are not equally
+<p>These 15.4m perfectly discriminating hashes are not equally
 distributed across genomes, however. Of the 318k genomes in GTDB
 rs207, only 149k (47.1%) of the genomes contain a hash that
 perfectly identifies it.</p>
@@ -212,8 +218,7 @@ looking in detail at all k-mers?)</p>
 <p>(CTB: be careful about estimates based on FracMinHash, vs actual k-mers.)</p>
 <p>Conclusion of this results section (to go into discussion): it is not
 easy to identify individual genomes based on k-mers alone.</p>
-<h3 id="many-individual-hashes-are-not-taxon-specific-but-most-species-do">Many individual hashes are not taxon specific, but most species do</h3>
-<pre><code>have perfectly informative k-mers.</code></pre>
+<h3 id="most-species-do-have-perfectly-informative-hashes.">Most species do have perfectly informative hashes.</h3>
 <p>We next ask, if we see a k-mer from the reference database in a
 metagenome, what is the likelihood that we can uniquely pinpoint a
 specific taxonomic unit’s presence?</p>
@@ -264,8 +269,7 @@ rs207 genomes. </caption>
 <p>There are 73 genera (of 16686) with no perfectly identfying hashes,
 and 8 families (of 4107), and 4 orders (out of 1593). However many of
 these (all of these? :) are pathological cases where there are very
-few genomes at the given taxonomic rank.</p>
-<p>CTB: fix the numbers above to reflect some of the weird edge cases we found :)</p>
+few genomes at the given taxonomic rank. CTB: fix these numbers to reflect some of the weird edge cases we found :)</p>
 <p>Conclusion of this results section for discussion: it is straightforward
 to do taxonomic identification of sequencing data against GTDB.</p>
 <h3 id="taxonomies-vary-in-their-k-mer-specificity">Taxonomies vary in their k-mer specificity</h3>
@@ -273,7 +277,7 @@ to do taxonomic identification of sequencing data against GTDB.</p>
 NCBI taxonomy instead of the GTDB taxonomy. Table <a href="#tbl:ncbi-entropy">2</a>
 uses the NCBI taxonomy with the same genomes used above. Here we see
 that approximately 4.5% of hashes cannot be used to distinguish
-between different families
+between different <em>families</em>
 - a full 5 times as many as with the GTDB taxonomy. These 1.0 million
 hashes represent approximately 10 billion k-mers, or approximately
 2,000 bacterial genomes worth of sequence.</p>
@@ -431,7 +435,7 @@ at species level or below. (CTB: link to previous results)</p>
 <p>Conclusions for discussion:</p>
 <ul>
 <li>sourmash/FracMinHash can perfectly distinguish most species based on combinations of hashes</li>
-<li>the value of gather here is that it automatically uses discriminatory hashes without any taxonomy-aware preprocessing</li>
+<li>the value of gather here is that it automatically uses discriminatory hashes without any taxonomy-aware preprocessing. should be even more valuable at low scaled. Can apply to any containment based approach!</li>
 <li>this will not necessarily work for pinpointing specific genomes / strain resolution!</li>
 </ul>
 <h3 id="implications-for-short-read-mapping">Implications for short-read mapping</h3>
@@ -442,7 +446,7 @@ distinguish between many closely related genomes.</p>
 <ul>
 <li>distinguish between “just” using end-to-end alignment vs calculating
 detailed SNP/SVs (which is coverage dependent, will decrease sensitivity)</li>
-<li>show for select pairs of genomes that short-read mapping approaches struggle</li>
+<li>show for select pairs of genomes that short-read mapping approaches struggle, and/or that they match containment.</li>
 </ul>
 <h3 id="implications-for-long-read-mapping">Implications for long-read mapping</h3>
 <p>Challenges in long-read mapping approaches:</p>
