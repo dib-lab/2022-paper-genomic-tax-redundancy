@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-27" />
   <meta name="citation_publication_date" content="2022-11-27" />
   <meta property="article:published_time" content="2022-11-27" />
-  <meta name="dc.modified" content="2022-11-27T20:58:06+00:00" />
-  <meta property="article:modified_time" content="2022-11-27T20:58:06+00:00" />
+  <meta name="dc.modified" content="2022-11-27T22:49:41+00:00" />
+  <meta property="article:modified_time" content="2022-11-27T22:49:41+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/72ea2402d71682c80cd70c7957ca85372c2885d7/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/72ea2402d71682c80cd70c7957ca85372c2885d7/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/72ea2402d71682c80cd70c7957ca85372c2885d7/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/72ea2402d71682c80cd70c7957ca85372c2885d7/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@7b3a6ed](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50)
+from [dib-lab/2022-paper-genomic-tax-redundancy@72ea240](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/72ea2402d71682c80cd70c7957ca85372c2885d7)
 on November 27, 2022.
 </em></small>
 
@@ -180,9 +180,12 @@ Overall messages to pick from, in order of CTB pref:
 
 * It is hard to do genome-resolved analysis from metagenomes (but easy
   to do highly specific taxonomic resolution with just k-mers).
-* there are limits to sensitivity / specificity of various approaches based on genome relatedness
-* unicity distance is an interesting measure for both genome and taxonomic classification.
-* short reads have limited capability / correspond well to hashes; long reads should add significant specificity.
+* FracMinHash-based measures (hash specificity, hash unicity distance)
+  provide valuable information that highlight genomes and taxonomic
+  units that are hard to classify with any approach; these genomes
+  and taxonomic units are where to focus on improvements, because the rest
+  are easy.
+* short reads have limited capability / correspond well to hashes; long reads do not seem to add significant capability. (THIS ARGUMENT NEEDS TO BE SHARPENED)
 * sourmash works well because of combinatorics automatically picking discriminatory hashes.
 * NCBI is more confused than GTDB.
 

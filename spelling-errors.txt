@@ -9,7 +9,7 @@ FracMinHash
 Genbank
 generalizability
 genomic
-gtdb
+GTDB
 Hackmd
 hashvals
 ick
