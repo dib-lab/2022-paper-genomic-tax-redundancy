@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-27" />
   <meta name="citation_publication_date" content="2022-11-27" />
   <meta property="article:published_time" content="2022-11-27" />
-  <meta name="dc.modified" content="2022-11-27T17:55:17+00:00" />
-  <meta property="article:modified_time" content="2022-11-27T17:55:17+00:00" />
+  <meta name="dc.modified" content="2022-11-27T20:58:06+00:00" />
+  <meta property="article:modified_time" content="2022-11-27T20:58:06+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7086333ad8a9f64c437ba4a02f0d10f62646589b/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@7086333](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/7086333ad8a9f64c437ba4a02f0d10f62646589b)
+from [dib-lab/2022-paper-genomic-tax-redundancy@7b3a6ed](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/7b3a6ed1e1adadbd0b9b973b4d8d2c22ebf29e50)
 on November 27, 2022.
 </em></small>
 
@@ -179,17 +179,17 @@ Note assumptions:
 Overall messages to pick from, in order of CTB pref:
 
 * It is hard to do genome-resolved analysis from metagenomes (but easy
-  to do highly specific taxonomic resolution with either k-mers or with
-  combinatorics).
-* unicity distance is an interesting measure
-* short reads have limited capabiltiy / correspond well to hashes; may be difficult to use long reads
+  to do highly specific taxonomic resolution with just k-mers).
+* there are limits to sensitivity / specificity of various approaches based on genome relatedness
+* unicity distance is an interesting measure for both genome and taxonomic classification.
+* short reads have limited capability / correspond well to hashes; long reads should add significant specificity.
 * sourmash works well because of combinatorics automatically picking discriminatory hashes.
 * NCBI is more confused than GTDB.
 
 Challenges:
 
 * FracMinHash has false negatives, so we have to be careful about conclusions about what k-mers _cannot_ do.
-* Do we want to make this (mostly) about FracMinHash, or not? :)
+* Do we want to make this (mostly) about FracMinHash, or not? Could make title "Practical limits in resolving species and genomes from metagenomic data with FracMinHash" :) and/or parameter tuning for FracMinHash.
 
 ### Many individual hashes are genome specific, but not all genomes have perfectly informative hashes
 
@@ -224,6 +224,11 @@ likely that perfectly identifying k-mers can be found for many of
 these genomes, there are not many large regions. (Can we quantify by
 looking in detail at all k-mers?)
 
+Preliminary results of exact k-mer analysis:
+
+* if no hashes exist, suggests that < 1000 k-mers exist that could distinguish
+  between genomes; e.g. see [results for `s__Bosea`](https://github.com/ctb/2022-sourmash-sens-spec/issues/6). Significant implications for sensitivity and specificity!
+
 (CTB: be careful about estimates based on FracMinHash, vs actual k-mers.)
 
 Conclusion of this results section (to go into discussion): it is not
@@ -250,7 +255,7 @@ identify a specific family within the GTDB taxonomy.
 Table: Entropy measurements for GTDB taxonomy using 318k genomes from
 rs207 genomes. {#tbl:gtdb-entropy}
 
-There are 73 genera (of 16686) with no perfectly identfying hashes,
+There are 73 genera (of 16686) with no perfectly identifying hashes,
 and 8 families (of 4107), and 4 orders (out of 1593). However many of
 these (all of these? :) are pathological cases where there are very
 few genomes at the given taxonomic rank. CTB: fix these numbers to reflect some of the weird edge cases we found :)
@@ -343,10 +348,10 @@ Table: Estimated unicity distances with hashes for 318k GTDB rs207
 genomes using FracMinHash as implemented in sourmash (k=31,
 scaled=10,000). {#tbl:unicity}
 
-(FIX table above ;))
+(CTB: calculate for unicity 2, and 3.)
 
 Taxonomic summarization confirms that most infinite unicity genomes are
-at species level or below. (CTB: link to previous results)
+at species level or below. (CTB: link/connet to previous results above.)
 
 (Do we want to calculate scaled=1 k-mer unicity in this section?)
 
@@ -370,10 +375,13 @@ TODO:
 
 ### Implications for long-read mapping
 
+* should be very effective
+* can use fracminhash etc to identify likely genomes once over 5kb
+
 Challenges in long-read mapping approaches:
 
-* many troublesome genomes are in fragments smaller than length of reads!
-* cannot necessarily use full length of long reads!
+* may be too specific / lose sensitivity to genome rearrangements?
+
 
 ### Other TODO:
 

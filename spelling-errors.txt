@@ -1,7 +1,7 @@
 ANI
-capabiltiy
-combinatorial
+Combinatorial
 combinatorics
+connet
 CTB
 downsampling
 equationXX
@@ -9,11 +9,10 @@ FracMinHash
 Genbank
 generalizability
 genomic
-GTDB
+gtdb
 Hackmd
 hashvals
 ick
-identfying
 janeroe
 johndoe
 Kraken
