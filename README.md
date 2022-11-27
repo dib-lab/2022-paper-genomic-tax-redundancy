@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/gh-pages) branch hosts the contents of this directory at <https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/>.
-The permalink for this webpage version is <https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/b7593f0eec5ac3a40b612c64cc82438b19d337f9/>.
+The permalink for this webpage version is <https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/df01a672f7822cd5513e0d01fbd663a3a8facb7e/>.
 To redirect to the permalink for the latest manuscript version at anytime, use the link <https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/freeze/>.
 
 ## Files
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`b7593f0eec5ac3a40b612c64cc82438b19d337f9`](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/commit/b7593f0eec5ac3a40b612c64cc82438b19d337f9).
+[`df01a672f7822cd5513e0d01fbd663a3a8facb7e`](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/commit/df01a672f7822cd5513e0d01fbd663a3a8facb7e).
