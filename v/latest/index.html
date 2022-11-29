@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2022-11-27" />
+  <meta name="dcterms.date" content="2022-11-29" />
   <meta name="keywords" content="Shannon entropy, unicity distance" />
   <title>Practical limits in resolving species and genomes from metagenomic data</title>
   <style>
@@ -46,11 +46,11 @@
   <meta name="citation_title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="og:title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="twitter:title" content="Practical limits in resolving species and genomes from metagenomic data" />
-  <meta name="dc.date" content="2022-11-27" />
-  <meta name="citation_publication_date" content="2022-11-27" />
-  <meta property="article:published_time" content="2022-11-27" />
-  <meta name="dc.modified" content="2022-11-27T23:12:49+00:00" />
-  <meta property="article:modified_time" content="2022-11-27T23:12:49+00:00" />
+  <meta name="dc.date" content="2022-11-29" />
+  <meta name="citation_publication_date" content="2022-11-29" />
+  <meta property="article:published_time" content="2022-11-29" />
+  <meta name="dc.modified" content="2022-11-29T14:29:24+00:00" />
+  <meta property="article:modified_time" content="2022-11-29T14:29:24+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -71,9 +71,9 @@
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/809dd8248dbb5f28c5855dbf964e963c324d14fc/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/809dd8248dbb5f28c5855dbf964e963c324d14fc/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/809dd8248dbb5f28c5855dbf964e963c324d14fc/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -90,10 +90,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/809dd8248dbb5f28c5855dbf964e963c324d14fc/">permalink</a>)
+(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/809dd8248dbb5f28c5855dbf964e963c324d14fc">dib-lab/2022-paper-genomic-tax-redundancy@809dd82</a>
-on November 27, 2022.
+from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/cb3860c654c235dbb3bc99a319cbc59644eb4faf">dib-lab/2022-paper-genomic-tax-redundancy@cb3860c</a>
+on November 29, 2022.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -207,24 +207,24 @@ even in low-coverage data sets
 (Appendix A).</p>
 <p>In practice, genomes are neither unbiased nor contain distinct
 content. In order to analyze 300k genomes at scale, we used
-FracMinHash. At reasonable parameters (S=10,00, k=31) we generated a
+FracMinHash. At reasonable parameters (S=10,000, k=31) we generated a
 representative collection of hashes and found that 15378449 of
 22792206 hashvals (67.5%) in GTDB rs207 are perfectly informative at
 genome level.</p>
 <p>These 15.4m perfectly discriminating hashes are not equally
 distributed across genomes, however. Of the 318k genomes in GTDB
-rs207, only 149k (47.1%) of the genomes contain a hash that
-perfectly identifies it.</p>
-<p>This lack may be due to FracMinHash downsampling. But while it is
-likely that perfectly identifying k-mers can be found for many of
-these genomes, there are not many large regions. (Can we quantify by
-looking in detail at all k-mers?)</p>
-<p>Preliminary results of exact k-mer analysis:</p>
-<ul>
-<li>if no hashes exist, suggests that &lt; 1000 k-mers exist that could distinguish
-between genomes; e.g. see <a href="https://github.com/ctb/2022-sourmash-sens-spec/issues/6">results for <code>s__Bosea</code></a>. Significant implications for sensitivity and specificity!</li>
-</ul>
-<p>(CTB: be careful about estimates based on FracMinHash, vs actual k-mers.)</p>
+rs207, 149k (47.1%) of the genomes contain a hash that
+perfectly identifies that genome; the remaining 52.9% of genomes
+cannot be unambiguously identified due to the presence of the hash.</p>
+<p>Inspection of these genomes using all k-mers confirms that, in
+general, a lack of discriminating hashes for FracMinHash=10,000 means
+that there are fewer than 10,000 distinguishing k-mers present in the
+genome (e.g. see
+<a href="https://github.com/ctb/2022-sourmash-sens-spec/issues/6">results for <code>s__Bosea</code></a>). That
+is, the FracMinHash results indicate a likely upper bound on the
+number of distinguishing k-mers</p>
+<p>This has significant implications for sensitivity and specificity of
+k-mer based techniques.</p>
 <p>Conclusion of this results section (to go into discussion): it is not
 easy to identify individual genomes based on k-mers alone.</p>
 <h3 id="most-species-do-have-perfectly-informative-hashes.">Most species do have perfectly informative hashes.</h3>
@@ -232,7 +232,7 @@ easy to identify individual genomes based on k-mers alone.</p>
 metagenome, what is the likelihood that we can uniquely pinpoint a
 specific taxonomic unit’s presence?</p>
 <p>Using GTDB, we calculate that 6.2% of k-mers are not species
-specific, and 0.9% of k-mers are not species, family, or genus
+specific, and 0.9% of k-mers are neither species, family, or genus
 specific (Table <a href="#tbl:gtdb-entropy">1</a>). That is, 99.1% of hashes uniquely
 identify a specific family within the GTDB taxonomy.</p>
 <div id="tbl:gtdb-entropy" class="tablenos">
@@ -278,9 +278,10 @@ rs207 genomes. </caption>
 <p>There are 73 genera (of 16686) with no perfectly identifying hashes,
 and 8 families (of 4107), and 4 orders (out of 1593). However many of
 these (all of these? :) are pathological cases where there are very
-few genomes at the given taxonomic rank. CTB: fix these numbers to reflect some of the weird edge cases we found :)</p>
+few genomes at the given taxonomic rank. CTB: fix these numbers to
+reflect some of the weird edge cases we found :)</p>
 <p>Conclusion of this results section for discussion: it is straightforward
-to do taxonomic identification of sequencing data against GTDB.</p>
+to do taxonomic identification of sequencing data using GTDB.</p>
 <h3 id="taxonomies-vary-in-their-k-mer-specificity">Taxonomies vary in their k-mer specificity</h3>
 <p>We can also calculate these numbers for the same genomes using the
 NCBI taxonomy instead of the GTDB taxonomy. Table <a href="#tbl:ncbi-entropy">2</a>
@@ -571,6 +572,108 @@ combinations of k-mer.</p>
 <h2 class="page_break_before" id="discussion">Discussion</h2>
 <p>Automatic selection of discriminating k-mers through combinatorics is one
 reason why sourmash performs so well.</p>
+<p>Foreword to Discussion or Conclusion, or maybe end of Introduction -</p>
+<p>Microbial bioinformatics is increasingly challenged by an abundance of
+closely related genomes, which has led in turn to pangenomics. The
+features of archaeal and bacterial genomes include considerations such
+as open and closed pangenomes, along with a seemingly endless
+diversity of accessory elements and a highly conserved set of core
+genes. The subject of this study is how the <em>genomic</em> structure of
+pangenomes, as represented in reference databases, affects
+reference-based interpretation of metagenomic data.</p>
+<p>The key perspectives we bring to this work are as follows: we are
+facing a substantial over-abundance of genome sequences, and there is
+an increasing interest in using them to interpret metagenomic data at
+the strain or individual genomic level. This, in turn, is made
+considerably more difficult by the empirical observation that the vast
+majority of shared nucleotide sequence is present at and below the
+species level. Here we focus on evaluating and measuring the extent
+to which species and genomes can be identified at the nucleotide
+level, using both single k-mers and k-mers in combination.</p>
+<p>We also show that human-constructed taxonomies both simplify and
+complicate matters: while they provide helpful resolution up to a point,
+they also complicate tool development and design. Taxonomic benchmarks
+on their own may not be a useful way forward. (Unload sourmash perspective.
+Discuss contamination here too.)</p>
+<p>We model things as a database lookup problem where we assume that the
+right match is in the database, and the challenge is distinguishing
+them in the face of the actual structure in the database. For this
+study we explicitly ignore questions of sensitivity across sequence
+divergence as well as errors in the database sequences, e.g. incorrect
+sequence or contamination.</p>
+<h3 id="species-level-classification-of-sequencing-data-is-straightforward-with-k-mers">Species-level classification of sequencing data is straightforward with k-mers</h3>
+<ul>
+<li>Taxonomic classification of sequencing data is statistically
+straightforward with long k-mers. You can easily achieve high
+sensitivity and high precision/recall.</li>
+<li>Most species can be identified by the presence of a single k-mer
+from any genome within that species.</li>
+<li>Most k-mers in the reference database identify a species, a genus,
+or a family.</li>
+</ul>
+<h3 id="genome-based-classification-of-sequencing-data-with-k-mers-is-more-challenging.">Genome-based classification of sequencing data with k-mers is more challenging.</h3>
+<ul>
+<li>We use genomes instead of strains because if you can identify genomes
+presumably you can identify strains, and strains are conceptually
+challenging. This is basically the hardest version of the problem!</li>
+<li>A full 47.3% of genomes in the database can be readily identified at a
+low level of sequencing by using individual hashes. Yay!</li>
+<li>Another 23.7% of genomes can be identified by using hashes in combination
+with each other.</li>
+<li>However, the remaining 23.7% of genomes are not that different from
+other genomes in the database - we can put a hard constraint of &lt;
+10k unique k-mers on each of them, or less than 2% of the k-mers in
+the genome!</li>
+</ul>
+<h3 id="mapping-reads-to-genomes-suffers-from-similar-challenges">Mapping reads to genomes suffers from similar challenges</h3>
+<ul>
+<li>We use k-mers to identify challenging genomes for mapping. This
+works for two reasons: first, k-mers are more stringent than
+mapping, so provide an upper bound; and second, if you can use k-mers,
+you don’t need to use mapping.</li>
+<li>We evaluate end-to-end alignment of reads to reference genomes
+and show that, without consideration of SNPs or SVs, many genomes
+are hard to distinguish with read mapping.</li>
+<li>We do not consider SNPs and SVs here because reliably calling them
+from sequencing data requires higher coverage data and is relatively
+challenging (and subject to many false positives).</li>
+<li>Long reads do not necessarily solve problems for the 23.7% of genomes
+that cannot easily be distinguished by k-mers.</li>
+</ul>
+<h3 id="different-taxonmies-confound-things.">Different taxonmies confound things.</h3>
+<ul>
+<li>The Nask et al. paper from 2018 is largely a commentary on two
+things: too short a k-mer size for individual k-mers, and how
+“bad” taxonomies can mess things up.</li>
+<li>Measuring k-mer specificity as above is a simple way to evaluate taxonomies.</li>
+<li>GTDB is a nicer, simpler taxonomy.</li>
+<li>NCBI taxonomy causes more problems.</li>
+<li>New organizational schemes such as LINS may be better, but other things
+may come into play - contamination and lateral gene transfer. Out of scope
+of this work.</li>
+<li>Organizing things taxonomically helps when you just need species-level
+classification but hurts when you care about genome-level classification.</li>
+</ul>
+<h3 id="reduced-representation-databases-are-not-good.">Reduced-representation databases are not good.</h3>
+<ul>
+<li>Reduced-representation/non-redundant databases such as used in (many
+programs) are not good when you want strain level analysis. You end up
+omitting sequence that may be important functionally.</li>
+<li>We should use all available data and sort through it afterwards.</li>
+<li>Several approaches (sourmash, ganon, shei wen) for doing this.</li>
+</ul>
+<h3 id="sourmash-works-well-up-to-a-point.">Sourmash works well up to a point.</h3>
+<ul>
+<li>We were motivated to explore the above because of sourmash high
+recall and precision in long read paper.</li>
+<li>Sourmash works well because it automatically finds discriminatory
+k-mers.</li>
+<li>But sourmash will fail to classify the 23.7% of genomes above with
+default parameters.</li>
+<li>These genomes are not readily distinguishable by read mapping, either.</li>
+<li>This is an interesting challenge for future classifier benchmarks.</li>
+</ul>
+<h3 id="leftover-text">LEFTOVER TEXT</h3>
 <h3 id="species-level-classification-should-be-straightforward-with-k-mers">Species-level classification should be straightforward with k-mers</h3>
 <p>Taxonomic classification to the species level is straightforward,
 largely because GTDB taxonomy is closely tied to genomic content and
