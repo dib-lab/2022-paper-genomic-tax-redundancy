@@ -4,7 +4,7 @@ keywords:
 - Shannon entropy
 - unicity distance
 lang: en-US
-date-meta: '2022-11-29'
+date-meta: '2022-12-06'
 author-meta:
 - John Doe
 - Jane Roe
@@ -19,11 +19,11 @@ header-includes: |-
   <meta name="citation_title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="og:title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="twitter:title" content="Practical limits in resolving species and genomes from metagenomic data" />
-  <meta name="dc.date" content="2022-11-29" />
-  <meta name="citation_publication_date" content="2022-11-29" />
-  <meta property="article:published_time" content="2022-11-29" />
-  <meta name="dc.modified" content="2022-11-29T14:29:24+00:00" />
-  <meta property="article:modified_time" content="2022-11-29T14:29:24+00:00" />
+  <meta name="dc.date" content="2022-12-06" />
+  <meta name="citation_publication_date" content="2022-12-06" />
+  <meta property="article:published_time" content="2022-12-06" />
+  <meta name="dc.modified" content="2022-12-06T14:50:40+00:00" />
+  <meta property="article:modified_time" content="2022-12-06T14:50:40+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,10 +68,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/cb3860c654c235dbb3bc99a319cbc59644eb4faf/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@cb3860c](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/cb3860c654c235dbb3bc99a319cbc59644eb4faf)
-on November 29, 2022.
+from [dib-lab/2022-paper-genomic-tax-redundancy@10e20f6](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/10e20f691637e446f419f67b04b5622cd1a4fb19)
+on December 6, 2022.
 </em></small>
 
 
@@ -166,6 +166,19 @@ https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0258693
 Fast and flexible bacterial genomic epidemiology with PopPUNK
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6360808/
 
+KMCP intro makes lots of good points. Note combinatoric statement in SBT paper. Make point that FracMinHash is picking independent k-mers.
+https://www.biorxiv.org/content/10.1101/2022.03.07.482835v2.full
+
+CLARK
+https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-015-1419-2
+
+BLEND:
+https://www.biorxiv.org/content/10.1101/2022.11.23.517691v1
+
+More points to make, somewhere:
+
+* you can use combinatorics with more than just FracMinHash. All k-mers, or seeds (like BLEND), or ...
+
 
 ## Results {.page_break_before}
 
@@ -222,21 +235,22 @@ These 15.4m perfectly discriminating hashes are not equally
 distributed across genomes, however. Of the 318k genomes in GTDB
 rs207, 149k (47.1%) of the genomes contain a hash that
 perfectly identifies that genome; the remaining 52.9% of genomes
-cannot be unambiguously identified due to the presence of the hash.
+cannot be unambiguously identified due to the presence of any single hash.
 
 Inspection of these genomes using all k-mers confirms that, in
 general, a lack of discriminating hashes for FracMinHash=10,000 means
 that there are fewer than 10,000 distinguishing k-mers present in the
 genome (e.g. see
 [results for `s__Bosea`](https://github.com/ctb/2022-sourmash-sens-spec/issues/6)). That
-is, the FracMinHash results indicate a likely upper bound on the
+is, the FracMinHash results provide an approximate upper bound on the
 number of distinguishing k-mers
 
+Conclusion of this results section (to go into discussion): it is not
+easy to identify individual genomes based on k-mers alone, and doing so
+would/will require making distinctions between genomes based on very small
+fractions of k-mers.
 This has significant implications for sensitivity and specificity of
 k-mer based techniques.
-
-Conclusion of this results section (to go into discussion): it is not
-easy to identify individual genomes based on k-mers alone.
 
 ### Most species do have perfectly informative hashes.
 
@@ -266,7 +280,7 @@ few genomes at the given taxonomic rank. CTB: fix these numbers to
 reflect some of the weird edge cases we found :)
 
 Conclusion of this results section for discussion: it is straightforward
-to do taxonomic identification of sequencing data using GTDB.
+to do taxonomic identification of sequencing data within the GTDB taxonomy.
 
 ### Taxonomies vary in their k-mer specificity
 
@@ -303,9 +317,10 @@ species/genus? Or is this empirical?
 
 ### Many genomes cannot be uniquely distinguished based on combinations of hashes
 
-Of the 318k genomes in GTDB rs207, only 149k (47.1%) of the genomes
-can be identified by considering individual hashes - each of the
-remaining 52.9% genomes have no hashes that are unique to that genome.
+From the results above, of the 318k genomes in GTDB rs207, only 149k
+(47.1%) of the genomes can be identified by considering individual
+hashes - each of the remaining 52.9% genomes have no hashes that are
+unique to that genome.
 
 K-mers can be further ranked based on *how much* discriminatory power they
 offer - for example, a k-mer that is only present in two genomes in the
@@ -356,7 +371,7 @@ scaled=10,000). {#tbl:unicity}
 (CTB: calculate for unicity 2, and 3.)
 
 Taxonomic summarization confirms that most infinite unicity genomes are
-at species level or below. (CTB: link/connet to previous results above.)
+at species level or below. (CTB: link/connect to previous results above.)
 
 (Do we want to calculate scaled=1 k-mer unicity in this section?)
 
@@ -556,10 +571,11 @@ sequence or contamination.
   low level of sequencing by using individual hashes. Yay!
 * Another 23.7% of genomes can be identified by using hashes in combination
   with each other.
-* However, the remaining 23.7% of genomes are not that different from
+* However, the remaining 29.2% of genomes are not that different from
   other genomes in the database - we can put a hard constraint of <
   10k unique k-mers on each of them, or less than 2% of the k-mers in
-  the genome!
+  the genome! This small a signal makes identification challenging in the
+  face of genome divergence/dropout, etc.
   
 ### Mapping reads to genomes suffers from similar challenges
 
