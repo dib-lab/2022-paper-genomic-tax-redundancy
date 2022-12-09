@@ -6,12 +6,14 @@ combinatoric
 combinatorics
 CTB
 equationXX
-fracminhash
+fN
+fnuction
+FracMinHash
 ganon
 Genbank
 generalizability
 genomic
-GTDB
+gtdb
 Hackmd
 hashvals
 ick
@@ -22,6 +24,7 @@ Kraken
 lables
 LCA
 LINS
+memoryless
 mer
 mers
 metagenome
@@ -30,7 +33,7 @@ metagenomic
 metagenomics
 Nask
 Nasko
-NCBI
+ncbi
 pangenome
 pangenomes
 pangenomics
@@ -40,6 +43,7 @@ preprocessing
 priori
 profilers
 pseudoalignment
+runlength
 SBT
 shei
 SNP

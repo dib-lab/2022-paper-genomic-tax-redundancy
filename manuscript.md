@@ -4,7 +4,7 @@ keywords:
 - Shannon entropy
 - unicity distance
 lang: en-US
-date-meta: '2022-12-06'
+date-meta: '2022-12-09'
 author-meta:
 - John Doe
 - Jane Roe
@@ -19,11 +19,11 @@ header-includes: |-
   <meta name="citation_title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="og:title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="twitter:title" content="Practical limits in resolving species and genomes from metagenomic data" />
-  <meta name="dc.date" content="2022-12-06" />
-  <meta name="citation_publication_date" content="2022-12-06" />
-  <meta property="article:published_time" content="2022-12-06" />
-  <meta name="dc.modified" content="2022-12-06T14:50:40+00:00" />
-  <meta property="article:modified_time" content="2022-12-06T14:50:40+00:00" />
+  <meta name="dc.date" content="2022-12-09" />
+  <meta name="citation_publication_date" content="2022-12-09" />
+  <meta property="article:published_time" content="2022-12-09" />
+  <meta name="dc.modified" content="2022-12-09T15:45:15+00:00" />
+  <meta property="article:modified_time" content="2022-12-09T15:45:15+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,10 +68,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/))
+([permalink](https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/))
 was automatically generated
-from [dib-lab/2022-paper-genomic-tax-redundancy@10e20f6](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/10e20f691637e446f419f67b04b5622cd1a4fb19)
-on December 6, 2022.
+from [dib-lab/2022-paper-genomic-tax-redundancy@80053ad](https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/80053ad9caca1ad6a5873a5390159220140b41e3)
+on December 9, 2022.
 </em></small>
 
 
@@ -745,4 +745,69 @@ Methods go here.
 
 ### Appendix B - Combinatorial k-mers can resolve genomes even at low k-mer sizes.
 
+### Appendix C - FracMinHash sketching can be modeled as a Poisson process
 
+We can model the FracMinHash sketch algorithm as follows: for a stream
+of randomly generated k-mers (with k sufficiently large that the k-mers
+are effectively sampled without replacement (e.g. k=21)), FracMinHash
+with scaled=S adds hashes to the sketch at an average rate of one in every S
+k-mers.
+
+The process of adding hashes to the sketch is a Poisson process, since
+for any given number of k-mers a discrete non-negative number of
+k-mers will be retained in the sketch, the events occur independently,
+and at most one k-mer is hashed at each time point.
+
+Thus the distribution of output sketch sizes for a given number of
+input k-mers M is a Poisson distribution with lambda=M/S.
+
+For genome comparison purposes, we want to know the average runlength
+of k-mers for which no hashes will be retained; this will inform the
+choice of the scaled parameter S for sensitively detecting overlaps of
+a size M k-mers. The average runlength can be easily be evaluated for
+random sequences (or, in genomic parlance, high complexity /
+non-repetitive genomic sequence) by calculating the probability of
+generating a sketch of size 0 given M k-mers.
+
+Using Poisson statistics, this is:
+
+Poisson(k=0, lambda=M / S) =  exp(- M / S)
+
+Then the probability of _at least_ one hash being generated for a collection
+of k-mers M in size is:
+
+1 - exp(-M / S)
+
+and we see that this matches empirical observations using sourmash. (CTB
+insert notebook results.)
+
+Here we note that the distribution of lengths of k-mer runs with zero
+hashes is dependent only on S, and independent of any genome
+size. This is what we would expect from a memoryless process such as
+FracMinHash sketching with a good hash fnuction.
+
+### Appendix D - Limits on genome differences for genomes with identical hash collections
+
+Now consider two genomes A and B, identical in size, with identical
+FracMinHash sketches.  Suppose we want to choose the minimum scaled
+value S necessary to guarantee a maximum difference between the k-mers
+in A and B?  Or, to rephrase: what S is sufficient to assert that A
+and B share _more than_ a specific fraction f (say, 99.9%) of their
+k-mers?
+
+This is equivalent to asking the question: for genomes with N distinct
+k-mers what is the scaled value S such that for 99.9% of those
+genomes, all runs of k-mers longer than 1% of N that is not sketched?
+(CTB: This needs to be connected to "runs" of k-mers from the genome
+somehow.)
+
+For this, we take the equation
+
+p = exp(- fN / S)
+
+and solve for S, which yields:
+
+S = - fN / log(p)
+
+Choosing N=5e6 (a typical genome size for bacteria) and setting p =
+.001 and f = 0.01, we find S=7238.

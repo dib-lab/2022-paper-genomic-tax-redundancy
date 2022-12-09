@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2022-12-06" />
+  <meta name="dcterms.date" content="2022-12-09" />
   <meta name="keywords" content="Shannon entropy, unicity distance" />
   <title>Practical limits in resolving species and genomes from metagenomic data</title>
   <style>
@@ -46,11 +46,11 @@
   <meta name="citation_title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="og:title" content="Practical limits in resolving species and genomes from metagenomic data" />
   <meta property="twitter:title" content="Practical limits in resolving species and genomes from metagenomic data" />
-  <meta name="dc.date" content="2022-12-06" />
-  <meta name="citation_publication_date" content="2022-12-06" />
-  <meta property="article:published_time" content="2022-12-06" />
-  <meta name="dc.modified" content="2022-12-06T14:50:40+00:00" />
-  <meta property="article:modified_time" content="2022-12-06T14:50:40+00:00" />
+  <meta name="dc.date" content="2022-12-09" />
+  <meta name="citation_publication_date" content="2022-12-09" />
+  <meta property="article:published_time" content="2022-12-09" />
+  <meta name="dc.modified" content="2022-12-09T15:45:15+00:00" />
+  <meta property="article:modified_time" content="2022-12-09T15:45:15+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -71,9 +71,9 @@
   <meta name="citation_fulltext_html_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/" />
   <meta name="citation_pdf_url" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
-  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/" />
-  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/" />
+  <meta name="manubot_html_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/" />
+  <meta name="manubot_pdf_url_versioned" content="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -90,10 +90,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/10e20f691637e446f419f67b04b5622cd1a4fb19/">permalink</a>)
+(<a href="https://dib-lab.github.io/2022-paper-genomic-tax-redundancy/v/80053ad9caca1ad6a5873a5390159220140b41e3/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/10e20f691637e446f419f67b04b5622cd1a4fb19">dib-lab/2022-paper-genomic-tax-redundancy@10e20f6</a>
-on December 6, 2022.
+from <a href="https://github.com/dib-lab/2022-paper-genomic-tax-redundancy/tree/80053ad9caca1ad6a5873a5390159220140b41e3">dib-lab/2022-paper-genomic-tax-redundancy@80053ad</a>
+on December 9, 2022.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -780,6 +780,54 @@ that we have problems.</p>
 <h2 class="page_break_before" id="appendix">Appendix</h2>
 <h3 id="appendix-a---individual-k-mers-are-very-sensitive-to-even-low-coverage-genomes">Appendix A - Individual k-mers are very sensitive to even low coverage genomes</h3>
 <h3 id="appendix-b---combinatorial-k-mers-can-resolve-genomes-even-at-low-k-mer-sizes.">Appendix B - Combinatorial k-mers can resolve genomes even at low k-mer sizes.</h3>
+<h3 id="appendix-c---fracminhash-sketching-can-be-modeled-as-a-poisson-process">Appendix C - FracMinHash sketching can be modeled as a Poisson process</h3>
+<p>We can model the FracMinHash sketch algorithm as follows: for a stream
+of randomly generated k-mers (with k sufficiently large that the k-mers
+are effectively sampled without replacement (e.g. k=21)), FracMinHash
+with scaled=S adds hashes to the sketch at an average rate of one in every S
+k-mers.</p>
+<p>The process of adding hashes to the sketch is a Poisson process, since
+for any given number of k-mers a discrete non-negative number of
+k-mers will be retained in the sketch, the events occur independently,
+and at most one k-mer is hashed at each time point.</p>
+<p>Thus the distribution of output sketch sizes for a given number of
+input k-mers M is a Poisson distribution with lambda=M/S.</p>
+<p>For genome comparison purposes, we want to know the average runlength
+of k-mers for which no hashes will be retained; this will inform the
+choice of the scaled parameter S for sensitively detecting overlaps of
+a size M k-mers. The average runlength can be easily be evaluated for
+random sequences (or, in genomic parlance, high complexity /
+non-repetitive genomic sequence) by calculating the probability of
+generating a sketch of size 0 given M k-mers.</p>
+<p>Using Poisson statistics, this is:</p>
+<p>Poisson(k=0, lambda=M / S) = exp(- M / S)</p>
+<p>Then the probability of <em>at least</em> one hash being generated for a collection
+of k-mers M in size is:</p>
+<p>1 - exp(-M / S)</p>
+<p>and we see that this matches empirical observations using sourmash. (CTB
+insert notebook results.)</p>
+<p>Here we note that the distribution of lengths of k-mer runs with zero
+hashes is dependent only on S, and independent of any genome
+size. This is what we would expect from a memoryless process such as
+FracMinHash sketching with a good hash fnuction.</p>
+<h3 id="appendix-d---limits-on-genome-differences-for-genomes-with-identical-hash-collections">Appendix D - Limits on genome differences for genomes with identical hash collections</h3>
+<p>Now consider two genomes A and B, identical in size, with identical
+FracMinHash sketches. Suppose we want to choose the minimum scaled
+value S necessary to guarantee a maximum difference between the k-mers
+in A and B? Or, to rephrase: what S is sufficient to assert that A
+and B share <em>more than</em> a specific fraction f (say, 99.9%) of their
+k-mers?</p>
+<p>This is equivalent to asking the question: for genomes with N distinct
+k-mers what is the scaled value S such that for 99.9% of those
+genomes, all runs of k-mers longer than 1% of N that is not sketched?
+(CTB: This needs to be connected to “runs” of k-mers from the genome
+somehow.)</p>
+<p>For this, we take the equation</p>
+<p>p = exp(- fN / S)</p>
+<p>and solve for S, which yields:</p>
+<p>S = - fN / log(p)</p>
+<p>Choosing N=5e6 (a typical genome size for bacteria) and setting p =
+.001 and f = 0.01, we find S=7238.</p>
 <!-- default theme -->
 
 <style>
